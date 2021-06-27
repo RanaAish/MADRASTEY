@@ -8,6 +8,7 @@ import 'package:learn/view/admincontrol.dart';
 import 'package:get/get.dart';
 import 'package:learn/model/user.dart';
 import 'package:learn/view/widgets/customtext.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class tablesadmin extends StatefulWidget {
@@ -21,7 +22,6 @@ class _tables_adminState extends State<tablesadmin> {
 
   @override
   Widget build(BuildContext context) {
-
     return GetBuilder<HomeViewModel>(
         init: HomeViewModel(),
         builder: (value) =>GetBuilder<AuthViewmodel>(
@@ -49,31 +49,31 @@ class _tables_adminState extends State<tablesadmin> {
                         body: SingleChildScrollView(
                           child: Padding(
                               padding:
-                                  EdgeInsets.only(right: 20, left: 20, top: 20),
+                                  EdgeInsets.only(right: ScreenUtil().setWidth(20), left: ScreenUtil().setWidth(20), top: ScreenUtil().setHeight(20)),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
                                     padding:
-                                        EdgeInsets.only(left: 18, bottom: 10),
+                                        EdgeInsets.only(left: ScreenUtil().setWidth(18), bottom:ScreenUtil().setHeight(10)),
                                     child: customtext(
                                       text: "Tables",
-                                      fontSize: 25,
+                                      fontSize:ScreenUtil().setSp(25),
                                       fontweight: FontWeight.bold,
                                     ),
                                   ),
                                   Padding(
                                     padding:
-                                        EdgeInsets.only(left: 18, bottom: 10),
+                                        EdgeInsets.only(left: ScreenUtil().setWidth(18), bottom:ScreenUtil().setHeight(10)),
                                     child: customtext(
                                       text:
                                           "The Best collection of international the  schools For All Student In All different of  Ages From six years to 15 years",
-                                      fontSize: 17,
+                                      fontSize:ScreenUtil().setSp( 17),
                                       height: 1.5,
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 20, top: 5),
+                                    padding: EdgeInsets.only(left: 20.w, top: 5.h),
                                     child: SafeArea(
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
@@ -96,7 +96,7 @@ class _tables_adminState extends State<tablesadmin> {
                                               w: 150,
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.only(left: 15),
+                                              padding: EdgeInsets.only(left: 15.w),
                                               child: CustomButton(
                                                 onPress: () {
                                                   setState(() {
@@ -111,7 +111,7 @@ class _tables_adminState extends State<tablesadmin> {
                                                     ? Colors.white
                                                     : Colors.black,
                                                 text: "Student Table",
-                                                w: 150,
+                                                w: 150.w,
                                               ),
                                             )
                                           ],
@@ -124,12 +124,12 @@ class _tables_adminState extends State<tablesadmin> {
                                     scrollDirection: Axis.vertical,
                                   ),
                                   Container(
-                                    height: 378,
+                                    height: 378.h,
                                     child:
                                         createTable(filtterdata(snapshot.data)),
                                   ),
                                   SizedBox(
-                                    height: 15,
+                                    height: 15.h,
                                   ),
                                   Align(
                                     alignment: Alignment.center,
@@ -141,7 +141,7 @@ class _tables_adminState extends State<tablesadmin> {
                                                 click_student ? "S" : "T");
                                       },
                                       text: click_student ? "ADD Student":"ADD Teacher",
-                                      w: 150,
+                                      w: 150.w,
                                       color: iconcolor,
                                       colortext: Colors.white,
                                     ),
@@ -229,7 +229,7 @@ class _tables_adminState extends State<tablesadmin> {
                 ],
               )),
           Padding(
-            padding: EdgeInsets.only(top: 12, bottom: 12, right: 5, left: 5),
+            padding: EdgeInsets.only(top: 12.h, bottom: 12.h, right: 5.w, left: 5.w),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -237,10 +237,10 @@ class _tables_adminState extends State<tablesadmin> {
                   child: CustomButton(
                     onPress: () {},
                     text: "D",
-                    w: 50,
+                    w: 50.w,
                     fontweight: FontWeight.normal,
                     m: 0,
-                    h: 20,
+                    h: 20.h,
                     fsize: 10,
                     color: Colors.redAccent,
                     colortext: Colors.white,
@@ -252,11 +252,11 @@ class _tables_adminState extends State<tablesadmin> {
                   child: CustomButton(
                     onPress: () {},
                     text: "E",
-                    w: 50,
+                    w: 50.w,
                     fontweight: FontWeight.normal,
                     m: 0,
-                    h: 20,
-                    fsize: 10,
+                    h: 20.h,
+                    fsize: ScreenUtil().setSp(10),
                     color: Colors.teal,
                     colortext: Colors.white,
                   ),
@@ -293,9 +293,9 @@ class _tables_adminState extends State<tablesadmin> {
     ;
 
     return Container(
-      height: 400,
+      height: 400.h,
       padding: EdgeInsets.all(1),
-      margin: EdgeInsets.only(top: 5, left: 20, right: 20, bottom: 0),
+      margin: EdgeInsets.only(top: 5.h, left: 20.w, right: 20.h, bottom: 0),
       decoration: BoxDecoration(
         border: Border.all(
           width: 1.7,
@@ -305,14 +305,14 @@ class _tables_adminState extends State<tablesadmin> {
       ),
       child: Container(
         color: table,
-        height: 400,
+        height: 400.h,
         child: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             child: Table(
               children: rows,
               border: TableBorder.symmetric(
-                inside: BorderSide(width: 1),
+                inside: BorderSide(width: 1.w),
               ),
             )),
       ),

@@ -8,6 +8,7 @@ import 'package:learn/core/view_model/auth_viewmodel.dart';
 import 'package:get/get.dart';
 import 'package:learn/view/tables_admin.dart';
 import 'package:learn/view/widgets/customtext.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class admincontrol extends GetWidget<AuthViewmodel> {
   @override
@@ -40,14 +41,14 @@ class admincontrol extends GetWidget<AuthViewmodel> {
             fontSize: 17,
             fontweight: FontWeight.bold,
           ),
-           SizedBox(height:15),
+           SizedBox(height:15.h),
             Padding(padding: EdgeInsets.only(right: 22,left:22),child: customtext(
               text:
               "The Best collection of international schools For All Student In All different of Ages",
               fontSize: 14,
-              height: 1.5,
+              height: 1.5.h,
             ),),Container(
-            margin: EdgeInsets.only(top:70),
+            margin: EdgeInsets.only(top:70.h),
             child: Form(
               key:globalKey,
               child: Column(
@@ -65,9 +66,9 @@ class admincontrol extends GetWidget<AuthViewmodel> {
                       onClick: (value) {
                         code = value;
                       },
-                      hint: "Code", w:370),
+                      hint: "Code", w:370.w),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
                   ),
                   CustomTextField(
                       onClick: (value) {
@@ -75,13 +76,13 @@ class admincontrol extends GetWidget<AuthViewmodel> {
                       },
                       hint: "Phone", w:370),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
                   ),
                   CustomTextField(
                       onClick: (value) {
                         sex = value;
                       },
-                      hint: "Sex", w:370),
+                      hint: "Sex", w:370.w),
                   SizedBox(
                     height: 20,
                   ),
@@ -89,9 +90,9 @@ class admincontrol extends GetWidget<AuthViewmodel> {
                       onClick: (value) {
                         email = value;
                       },
-                      hint: "E-mail", w:370),
+                      hint: "E-mail", w:370.w),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   CustomButton(
                     onPress: () {

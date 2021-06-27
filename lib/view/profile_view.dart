@@ -6,6 +6,7 @@ import 'package:learn/core/view_model/auth_viewmodel.dart';
 import 'package:learn/view/widgets/customtext.dart';
 import 'package:learn/model/card_model.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class profile_view extends StatefulWidget {
   @override
@@ -27,7 +28,8 @@ class _profile_viewState extends State<profile_view> {
         body: GetBuilder<AuthViewmodel>(
           init: AuthViewmodel(),
           builder: (controler) => Container(
-            height: 800,
+            height:height,
+            width: width,
             child:Get.find<AuthViewmodel>().user.role=="S"?
              Stack(children: <Widget>[
               Positioned.fill(
@@ -37,8 +39,8 @@ class _profile_viewState extends State<profile_view> {
                 alignment: Alignment.topLeft,
               )),
               Positioned(
-                top: 73,
-                left: 33,
+                top: 73.h,
+                left: 33.w,
                 child: CircleAvatar(
                     radius: 60.0,
                     backgroundColor: Colors.grey,
@@ -47,8 +49,8 @@ class _profile_viewState extends State<profile_view> {
                     )),
               ),
               Positioned(
-                top: 210,
-                left: 50,
+                top: 210.h,
+                left: 50.w,
                 child: customtext(
                   fontfamily:"SegoeUI-Semi",
                   text: "${Get.find<AuthViewmodel>().user.name.toString()}",
@@ -57,18 +59,18 @@ class _profile_viewState extends State<profile_view> {
                 ),
               ),
               Positioned(
-                  top: 270,
+                  top: 270.h,
                   child: Container(
-                    height: 150,
-                    width: 400,
+                    height: 150.h,
+                    width: 400.w,
                     child: ListView.builder(
                         itemCount: cardmodel.card.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (BuildContext context, index) {
                           return new Container(
                               padding: EdgeInsets.all(10),
-                              width: 170,
-                              height: 200,
+                              width: 170.w,
+                              height: 200.h,
                               child: GestureDetector(
                                 onTap: () {},
                                 child: Card(
@@ -81,7 +83,7 @@ class _profile_viewState extends State<profile_view> {
                                     children: [
                                       Padding(
                                         padding:
-                                            EdgeInsets.only(top: 18, right: 10),
+                                            EdgeInsets.only(top: 18.h, right: 10.w),
                                         child: customtext(
                                           text: cardmodel.card[index]["title"],
                                           fontweight: FontWeight.bold,
@@ -90,7 +92,7 @@ class _profile_viewState extends State<profile_view> {
                                       ),
                                       Container(
                                         padding:
-                                            EdgeInsets.only(top: 18, left: 10),
+                                            EdgeInsets.only(top: 18.h, left: 10.w),
                                         child: customtext(
                                           text: cardmodel.card[index]
                                               ["content1"],
@@ -106,8 +108,8 @@ class _profile_viewState extends State<profile_view> {
                         }),
                   )),
               Positioned(
-                top: 480,
-                left: 35,
+                top: 480.h,
+                left: 35.w,
                 child: customtext(
                   text: "Score",
                   fontSize: 26,
@@ -115,10 +117,10 @@ class _profile_viewState extends State<profile_view> {
                 ),
               ),
               Positioned(
-                  top: 500,
-                  left: 20,
-                  height: 200,
-                  width: 500,
+                  top: 500.h,
+                  left: 20.w,
+                  height: 200.h,
+                  width: 500.w,
                   child: Container(
                     child: ListView.builder(
                         itemCount: images.length,
@@ -126,13 +128,13 @@ class _profile_viewState extends State<profile_view> {
                         itemBuilder: (BuildContext context, index) {
                           return new Padding(
                               padding:
-                                  EdgeInsets.only(top: 5, left: 12, bottom: 15),
+                                  EdgeInsets.only(top: 5.h, left: 12.w, bottom: 15.h),
                               child: Column(children: [
                                 Row(
                                   children: [
                                     Container(
-                                        width: 60,
-                                        height: 65,
+                                        width: 60.w,
+                                        height: 65.h,
                                         decoration: BoxDecoration(
                                             image: DecorationImage(
                                           image: AssetImage(
@@ -141,20 +143,20 @@ class _profile_viewState extends State<profile_view> {
                                         child: Center(
                                           child: Image.asset(
                                             images[index],
-                                            width: 50,
-                                            height: 50,
+                                            width: 50.w,
+                                            height: 50.h,
                                           ),
                                         )),
                                     Padding(
-                                      padding: EdgeInsets.only(top: 5),
+                                      padding: EdgeInsets.only(top: 5.h),
                                       child: Container(
-                                        margin: EdgeInsets.only(left: 30),
+                                        margin: EdgeInsets.only(left: 30.w),
                                         width: 255,
                                         height: 55,
                                         child: Card(
                                           child: Padding(
                                               padding:
-                                                  EdgeInsets.only(left: 30),
+                                                  EdgeInsets.only(left: 30.w),
                                               child: Row(
                                                 children: [
                                                   customtext(
@@ -166,7 +168,7 @@ class _profile_viewState extends State<profile_view> {
                                                   ),
                                                   Padding(
                                                       padding: EdgeInsets.only(
-                                                          left: 70),
+                                                          left: 70.w),
                                                       child: FutureBuilder(
                                                           future: Get.find<
                                                                   AuthViewmodel>()
@@ -178,7 +180,7 @@ class _profile_viewState extends State<profile_view> {
                                                                   .data.length
                                                                   .toString()} Points",
                                                               fontSize: 16,
-                                                              height: 1.5,
+                                                              height: 1.5.h,
                                                               color:
                                                                   Colors.white,
                                                             );
@@ -212,8 +214,8 @@ class _profile_viewState extends State<profile_view> {
               alignment: Alignment.topLeft,
             )),
           Positioned(
-            top: 73,
-            left: 33,
+            top: 73.h,
+            left: 33.w,
             child: CircleAvatar(
                 radius: 60.0,
                 backgroundColor: Colors.grey,
@@ -222,8 +224,8 @@ class _profile_viewState extends State<profile_view> {
                 )),
           ),
           Positioned(
-            top: 210,
-            left: 50,
+            top: 210.h,
+            left: 50.w,
             child: customtext(
               fontfamily:"SegoeUI-Semi",
               text: "${Get.find<AuthViewmodel>().user.name.toString()}",
@@ -231,57 +233,57 @@ class _profile_viewState extends State<profile_view> {
               fontweight: FontWeight.bold,
             ),),
           Positioned(
-            top: 280,
-            left: 20,
+            top: 280.h,
+            left: 20.w,
             child: Container(
               height: 500, width: 350,
-                child:GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2),
-              itemCount:4,
-              itemBuilder: (BuildContext context, i) {
-                return new  Container(
-                    padding: EdgeInsets.all(5),
-                    child:GetBuilder<AuthViewmodel>(
-                        init:AuthViewmodel(),
-                        builder:(value)=>Padding(padding:EdgeInsets.all(5),child:
-                        Column(
-                          children: [
-                        Stack(
-                        children: [
-                            Container(
-                              width:160,
-                              height:120,
-                              child:
-                              ClipRRect(
-                              borderRadius: BorderRadius.circular(40),
-                          child: Image(
-                            image: AssetImage(
-                                pictures[i])))),
-                                 Positioned.fill(
-                                   top: -10,
-                                     left: -10,
-                                     child:Align(
-                                    alignment: Alignment.topLeft,
-                                     child: Image.asset('assets/images/paper-clip@1X.png',width: 50,height: 50,)
-                                 ) )
-                               ],
-                              ),
-                               SizedBox(height: 15,),
-                            customtext(
-                              fontfamily:"SegoeUI-Semi",
-                              text: "${names[i]}",
-                              fontSize: 19,
-                              color:profile_text,
-                            ),
+                  child: Expanded(child:GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2),
+                    itemCount:4,
+                    itemBuilder: (BuildContext context, i) {
+                      return new  Container(
+                          padding: EdgeInsets.all(5),
+                          child:GetBuilder<AuthViewmodel>(
+                              init:AuthViewmodel(),
+                              builder:(value)=>Padding(padding:EdgeInsets.all(5),child:
+                              Flexible(child: Column(
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                          width:160.w,
+                                          height:120.h,
+                                          child:
+                                          ClipRRect(
+                                              borderRadius: BorderRadius.circular(40),
+                                              child: Image(
+                                                  image: AssetImage(
+                                                      pictures[i])))),
+                                      Positioned.fill(
+                                          top: -10.h,
+                                          left: -10.w,
+                                          child:Align(
+                                              alignment: Alignment.topLeft,
+                                              child: Image.asset('assets/images/paper-clip@1X.png',width: 50.w,height: 50.h,)
+                                          ) )
+                                    ],
+                                  ),
+                                  SizedBox(height: 13.h,),
+                                  Expanded(child: customtext(
+                                    fontfamily:"SegoeUI-Semi",
+                                    text: "${names[i]}",
+                                    fontSize: 19,
+                                    color:profile_text,
+                                  ),)
 
-                          ],
-                        ),))
-                );
-              },
-            ) ),
-        )
-              ,])
+                                ],
+                              ),),))
+                      );
+                    },
+                  )),
+                ) ),
+              ])
           ),
         ));
   }
